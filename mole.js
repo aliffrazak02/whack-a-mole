@@ -1,6 +1,7 @@
 let currMoleTile;
 let currPlantTile;
-
+let score = 0;
+let gameOver = false;
 
 window.onload = function() {
     setGame();
@@ -11,6 +12,7 @@ function setGame() {
     for (let i = 0; i < 9; i++) { // Create 9 holes
         let title = document.createElement("div");
         title.id = i.toString();
+        title.addEventListener("click", selectTile);
         document.getElementById("board").appendChild(title);
     }
 
@@ -57,4 +59,16 @@ function setPlant() {
 
     currPlantTile = document.getElementById(num);
     currPlantTile.appendChild(plant);
+}
+
+function selectTile() {
+    if (this == currMoleTile) {
+        score += 10; // Increase score by 10
+        document.getElementById("score").innerHTML = score.toString(); // Update score display
+    } else if (this == currPlantTile) {
+        document.getElementById("score").innerHTML = "Game Over: " + score.toString(); // Update score display
+        gameOver(true);
+    }
+
+
 }
