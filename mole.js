@@ -26,6 +26,10 @@ function getRandomTile() {
 }
 
 function setMole() {
+    if (gameOver) {
+        return; // Do nothing if the game is over
+    }
+
     if (currMoleTile){
         currMoleTile.innerHTML = ""; // Clear the previous mole
     }
@@ -44,6 +48,10 @@ function setMole() {
 
 }
 function setPlant() {
+    if (gameOver) {
+        return; // Do nothing if the game is over
+    }
+
     if (currPlantTile){
         currPlantTile.innerHTML = ""; // Clear the previous plant
     }
@@ -62,12 +70,15 @@ function setPlant() {
 }
 
 function selectTile() {
+    if (gameOver) {
+        return; // Do nothing if the game is over
+    }
     if (this == currMoleTile) {
         score += 10; // Increase score by 10
         document.getElementById("score").innerHTML = score.toString(); // Update score display
     } else if (this == currPlantTile) {
         document.getElementById("score").innerHTML = "Game Over: " + score.toString(); // Update score display
-        gameOver(true);
+        gameOver = true; // Set game over flag
     }
 
 
