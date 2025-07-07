@@ -11,7 +11,6 @@ A Whack-a-Mole game made entirely with JavaScript.
 
 * [ ] Time limit
 * [ ] Different difficulty
-* [ ] Add teleport paths at the screen borders
 
 ## Current Bugs / Future Improvements
 
